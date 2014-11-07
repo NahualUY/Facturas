@@ -72,4 +72,4 @@ class AgregarFactura(FormView):
 
 
 def get_db_alias(request):
-    return request.META['HTTP_HOST'].split('.db.nahual')[0]
+    return request.META['HTTP_HOST'].split('.bd.nahual')[0]
