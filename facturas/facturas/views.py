@@ -65,6 +65,11 @@ class AgregarFactura(FormView):
     template_name = 'agregar_factura.html'
     success_url = '/facturas'
 
+    def get_form_kwargs(self):
+        res = super(AgregarFactura, self).get_form_kwargs()
+        res['database'] = get_db_alias(self.request)
+        return res
+
     def form_valid(self, form):
         factura = models.Factura(**form.cleaned_data)
         factura.save(using=get_db_alias(self.request))

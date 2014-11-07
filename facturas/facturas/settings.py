@@ -64,9 +64,9 @@ users = ["agustin", "bruno", "carlosc", "carlosd", "fabio", "hernan", "hugo", "l
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nahual_facturas-base',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'facturas_'+users[0],
+        'USER': 'super',
+        'PASSWORD': '#YM1UVdGt0EIO.W',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }

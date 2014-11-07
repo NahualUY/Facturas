@@ -11,7 +11,12 @@ class AgregarClienteForm(forms.Form):
 
 class AgregarFacturaForm(forms.Form):
     numero = forms.IntegerField()
-    cliente = forms.ModelChoiceField(queryset=models.Cliente.objects.all())
+    cliente = forms.ModelChoiceField(queryset=None)
     fecha = forms.DateField()
     monto = forms.DecimalField()
     esta_paga = forms.BooleanField(required=False)
+
+    def __init__(self, database, *args, **kwargs):
+        super(AgregarFacturaForm, self).__init__(*args, **kwargs)
+
+        self.fields['cliente'].queryset = models.Cliente.objects.using(database).all()
