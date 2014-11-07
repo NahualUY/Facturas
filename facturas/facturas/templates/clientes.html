@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+</head>
+<body>
+<h1>Clientes</h1>
+<table border="1" width="100%">
+    <tr>
+        <th>C&eacute;dula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Tel&eacute;fono</th>
+        <th>Email</th>
+        <th>&nbsp;</th>
+    </tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{cliente.cedula}}</td>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.apellido}}</td>
+        <td>{{cliente.telefono}}</td>
+        <td>{{cliente.email}}</td>
+        <td><a href="/clientes/eliminar/{{cliente.cedula}}" onclick="return confirm('Seguro que quer&eacute;s eliminar a {{cliente.nombre}}?')">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br/>
+<a href="/clientes/agregar">Agregar cliente</a><br/>
+<a href="/">Inicio</a>
+</body>
+</html>

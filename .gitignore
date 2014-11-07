@@ -1,0 +1,5 @@
+.idea
+atlassian-ide-plugin.xml
+*.pyc
+.DS_Store
+env/

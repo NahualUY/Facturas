@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Facturas</title>
+</head>
+<body>
+<h1>Facturas</h1>
+<table border="1" width="100%">
+    <tr>
+        <th>N&uacute;mero de factura</th>
+        <th>Fecha</th>
+        <th>Nombre del cliente</th>
+        <th>Tel&eacute;fono</th>
+        <th>Monto</th>
+        <th>Estado</th>
+        <th>&nbsp;</th>
+    </tr>
+    {% for factura in facturas %}
+    <tr>
+        <td>{{factura.numero}}</td>
+        <td>{{factura.fecha}}</td>
+        <td>{{factura.cliente.nombre}} {{factura.cliente.apellido}}</td>
+        <td>{{factura.cliente.telefono}}</td>
+        <td>$ {{factura.monto}}</td>
+        <td>{{factura.esta_paga|yesno:'Paga,Impaga,Error'}}</td>
+        <td><a href="/facturas/eliminar/{{factura.numero}}" onclick="return confirm('Seguro que quer&eacute;s eliminar la factura {{factura.numero}}?')">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br/>
+<a href="/facturas/agregar">Agregar factura</a><br/>
+<a href="/">Inicio</a>
+</body>
+</html>
