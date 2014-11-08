@@ -12,7 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if len(args) > 0:
             self.pwd = args[0]
-            self.pwd_cmd = ' -p%s' % self.pwd_cmd
+            self.pwd_cmd = ' -p%s' % self.pwd
 
         db = _mysql.connect(host='127.0.0.1', user='root', passwd=self.pwd)
 
