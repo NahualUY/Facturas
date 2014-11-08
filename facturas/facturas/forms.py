@@ -14,7 +14,7 @@ class AgregarFacturaForm(forms.Form):
     cliente = forms.ModelChoiceField(queryset=None)
     producto = forms.ModelChoiceField(queryset=None)
     fecha = forms.DateField()
-    monto = forms.DecimalField()
+    monto = forms.CharField(required=False)
     esta_paga = forms.BooleanField(required=False)
 
     def __init__(self, database, *args, **kwargs):
