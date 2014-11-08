@@ -9,6 +9,7 @@
 <table border="1" width="100%">
     <tr>
         <th>N&uacute;mero de factura</th>
+        <th>Producto</th>
         <th>Fecha</th>
         <th>Nombre del cliente</th>
         <th>Tel&eacute;fono</th>
@@ -19,6 +20,7 @@
     {% for factura in facturas %}
     <tr>
         <td>{{factura.numero}}</td>
+        <td>{{factura.producto.nombre}}</td>
         <td>{{factura.fecha}}</td>
         <td>{{factura.cliente.nombre}} {{factura.cliente.apellido}}</td>
         <td>{{factura.cliente.telefono}}</td>

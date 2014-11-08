@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from local_settings import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -58,20 +59,18 @@ WSGI_APPLICATION = 'facturas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-users = ["agustin", "bruno", "carlosc", "carlosd", "fabio", "hernan", "hugo", "laotaro", "luiggi",
-         "michael", "miguel", "nelson", "nicolas", "paula", "demo"]
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'facturas_'+users[0],
-        'USER': 'super',
-        'PASSWORD': '#YM1UVdGt0EIO.W',
+        'NAME': 'facturas_'+local_settings['source_user'],
+        'USER': local_settings['super_username'],
+        'PASSWORD': local_settings['super_password'],
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
-for user in users:
+for user in local_settings['users']:
     DATABASES[user] = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'facturas_'+user,
